@@ -1,11 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import Courgette from 'url:../assets/fonts/Courgette-Regular.ttf';
 
 const PageGlobalConfig = createGlobalStyle`
-  @font-face {
-    font-family: Courgette;
-    src: url(${Courgette});
-  }
 
   html {
     font-size:100%;
