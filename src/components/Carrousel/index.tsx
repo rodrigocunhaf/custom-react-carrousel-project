@@ -27,6 +27,7 @@ import {
   setTransitionFillBar,
   setTranslateBanner,
 } from '../../store/reducers';
+import { ComponentKey } from '../../utils/ComponentKey';
 import CarrouselButton from './CarrouselButton';
 import CarrouselButtonList from './CarrouselButtonList';
 import CarrouselButtonListItem from './CarrouselButtonListItem';
@@ -127,9 +128,11 @@ const Carrousel = () => {
 
       {/* Menu List Banner Buttons */}
       <CarrouselButtonList>
-        {carrouselSelector.bannerList.map((banner) => {
+        {carrouselSelector.bannerList.map((banner, index) => {
           return (
-            <CarrouselButtonListItem>
+            <CarrouselButtonListItem
+              key={ComponentKey('carrosel_button_item', index)}
+            >
               {/* Banner Menu Button */}
               <CarrouselButton
                 actionClick={onClickNext}

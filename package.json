@@ -6,9 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel --port 3000  --open ",
-    "build": "parcel build  NODE_ENV=production --dist-dir build"
+    "build": "parcel build"
   },
   "devDependencies": {
+    "@babel/core": "^7.19.1",
     "@babel/plugin-transform-runtime": "^7.18.10",
     "@parcel/core": "^2.7.0",
     "@parcel/optimizer-data-url": "2.7.0",
