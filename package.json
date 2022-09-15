@@ -1,0 +1,45 @@
+{
+  "name": "clothing-store-front-end-react",
+  "version": "1.0.0",
+  "type": "module",
+  "source": "public/index.html",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel --port 3000  --open ",
+    "build": "parcel build  NODE_ENV=production --dist-dir build"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@parcel/core": "^2.7.0",
+    "@parcel/optimizer-data-url": "2.7.0",
+    "@parcel/transformer-inline-string": "2.7.0",
+    "@parcel/transformer-typescript-tsc": "^2.7.0",
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.36.2",
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.7",
+    "parcel": "^2.7.0",
+    "prettier": "2.7.1",
+    "process": "^0.11.10",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "dotenv": "^16.0.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "styled-components": "^5.3.5"
+  }
+}

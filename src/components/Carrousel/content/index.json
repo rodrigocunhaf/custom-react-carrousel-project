@@ -1,0 +1,22 @@
+[
+  {
+    "order": 1,
+    "color": "red",
+    "text": "1 Element"
+  },
+  {
+    "order": 2,
+    "color": "green",
+    "text": "2 Element"
+  },
+  {
+    "order": 3,
+    "color": "blue",
+    "text": "3 Element"
+  },
+  {
+    "order": 4,
+    "color": "purple",
+    "text": "4 Element"
+  }
+]
