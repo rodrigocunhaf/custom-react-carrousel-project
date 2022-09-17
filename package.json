@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel --port 3000  --open ",
-    "build": "parcel build",
+    "build": "yarn test && parcel build",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
