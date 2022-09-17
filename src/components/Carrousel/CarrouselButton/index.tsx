@@ -15,6 +15,7 @@ const Button = styled.button<ButtonProps>`
   width: 5rem;
   height: 1rem;
   border-radius: 3rem;
+  font-family: montserrat-regular;
   &:hover {
     cursor: pointer;
   }
