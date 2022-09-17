@@ -39,7 +39,7 @@ const initialState: CarrouselState = {
   disableButtons: false,
 };
 
-const carroselSlice = createSlice({
+export const carroselSlice = createSlice({
   initialState,
   name: 'Carrousel Banner Slice',
   reducers: {

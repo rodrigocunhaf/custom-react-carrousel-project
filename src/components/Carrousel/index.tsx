@@ -32,7 +32,6 @@ import CarrouselButton from './CarrouselButton';
 import CarrouselButtonList from './CarrouselButtonList';
 import CarrouselButtonListItem from './CarrouselButtonListItem';
 import CarrouselSlider from './CarrouselSlider';
-import content from './content/index.json';
 
 const Container = styled.section`
   max-width: 1920px;
@@ -42,9 +41,11 @@ const Container = styled.section`
   position: relative;
 `;
 
-const carrouselContent: ItemCarrousel[] = content;
-
-const Carrousel = () => {
+const Carrousel = ({
+  carrouselContent,
+}: {
+  carrouselContent: ItemCarrousel[];
+}) => {
   const carrouselSelector = usePageSelector((state) => state.carrousel);
   const dispatch = usePageDispatch();
 
@@ -56,23 +57,18 @@ const Carrousel = () => {
 
       dispatch(setNextBanner(defineNextElement(newCurrentElement)));
       dispatch(setDisableButtons(disableBannerButtons()));
-      const timerOne = setTimeout(() => {
+      setTimeout(() => {
         dispatch(setTransitionBanner(slowTransitionBanner()));
         dispatch(setTranslateBanner(translateToNext()));
       }, 100);
 
-      const timerTwo = setTimeout(() => {
+      setTimeout(() => {
         dispatch(setTransitionBanner(instantTransitionBanner()));
         dispatch(setTranslateBanner(resetTranslate()));
         dispatch(setCurrentBanner(defineCurrentElement(newCurrentElement)));
         dispatch(setFillBar(resetFillBar()));
         dispatch(setDisableButtons(enableBannerButtons()));
       }, 1000);
-
-      return () => {
-        clearTimeout(timerOne);
-        clearTimeout(timerTwo);
-      };
     }
   };
 

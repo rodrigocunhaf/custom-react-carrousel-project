@@ -1,4 +1,4 @@
-import { ItemCarrousel } from '..';
+import { ItemCarrousel } from '../reducers';
 
 export type CarrouselAction = {
   type: string;
@@ -60,10 +60,10 @@ export const instantTransitionBanner = (): CarrouselAction => {
   };
 };
 
-export const grownthFillBar = (): CarrouselAction => {
+export const grownthFillBar = (value?: number): CarrouselAction => {
   return {
     type: 'GROWNTH_FILL_BAR',
-    data: 3,
+    data: value || 3,
   };
 };
 

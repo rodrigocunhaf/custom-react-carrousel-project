@@ -3,12 +3,13 @@ import Carrousel from './components/Carrousel';
 import PageGlobalConfig from './global/page-global-config';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import content from './content/index.json';
 
 const App = (): JSX.Element => {
   return (
     <Provider store={store}>
       <PageGlobalConfig />
-      <Carrousel />
+      <Carrousel carrouselContent={content} />
     </Provider>
   );
 };

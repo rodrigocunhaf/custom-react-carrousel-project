@@ -61,7 +61,12 @@ const CarrouselButton = ({
   };
 
   return (
-    <Button onClick={onClickHandler} value={value} disabled={disabled}>
+    <Button
+      onClick={onClickHandler}
+      value={value}
+      disabled={disabled}
+      type="button"
+    >
       {buttonName}
       {currentElement === buttonOrder && (
         <FillBar
