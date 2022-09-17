@@ -2,30 +2,21 @@ import * as React from 'react';
 import '@testing-library/dom';
 import '@testing-library/jest-dom';
 import { act } from '@testing-library/react';
-import {
-  fireEvent,
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Carrousel from '.';
 import { Provider } from 'react-redux';
 import content from '../../content/index.json';
 import { store } from '../../store';
-import carrouselReducers, {
+import {
   setBannerList,
   setCurrentBanner,
   setFillBar,
-  setNextBanner,
-  setTransitionBanner,
 } from '../../store/reducers';
 import {
+  slowTransitionBanner,
   defineBannerList,
   defineCurrentElement,
-  defineNextElement,
   grownthFillBar,
-  instantTransitionBanner,
   resetFillBar,
 } from '../../store/actions';
 

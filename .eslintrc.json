@@ -10,13 +10,12 @@
   ],
   "overrides": [],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["react"],
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "no-unused-vars": "error"
   }
 }
