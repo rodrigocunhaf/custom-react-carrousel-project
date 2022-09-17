@@ -1,20 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`
+interface ButtonProps {
+  isActiveBanner: boolean;
+}
+
+const Button = styled.button<ButtonProps>`
   color: black;
-  background-color: yellow;
+  background-color: ${(props) => (!props.isActiveBanner ? 'yellow' : 'black')};
   border: 0;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  width: 12rem;
-  height: 4rem;
-  border-bottom-left-radius: 3rem;
-  border-top-left-radius: 3rem;
-
+  width: 5rem;
+  height: 1rem;
+  border-radius: 3rem;
   &:hover {
     cursor: pointer;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 12rem;
+    height: 4rem;
+    background-color: yellow;
+    border-radius: 0;
+    border-bottom-left-radius: 3rem;
+    border-top-left-radius: 3rem;
+  }
+`;
+
+const ButtonContent = styled.div`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 12rem;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -66,17 +88,20 @@ const CarrouselButton = ({
       value={value}
       disabled={disabled}
       type="button"
+      isActiveBanner={currentElement === buttonOrder}
     >
-      {buttonName}
-      {currentElement === buttonOrder && (
-        <FillBar
-          currentWidth={fillWidth}
-          style={{
-            transitionDuration: `${!inTransitionFillBar ? '0ms' : '1000ms'}`,
-            display: `${fillWidth >= 100 || inTransition ? 'none' : 'flex'}`,
-          }}
-        />
-      )}
+      <ButtonContent>
+        {buttonName}
+        {currentElement === buttonOrder && (
+          <FillBar
+            currentWidth={fillWidth}
+            style={{
+              transitionDuration: `${!inTransitionFillBar ? '0ms' : '1000ms'}`,
+              display: `${fillWidth >= 100 || inTransition ? 'none' : 'flex'}`,
+            }}
+          />
+        )}
+      </ButtonContent>
     </Button>
   );
 };
