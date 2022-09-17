@@ -9,7 +9,7 @@ const CarrouselButtonListItem = ({
   children,
 }: {
   children: React.ReactNode;
-}) => {
+}): JSX.Element => {
   return <Container>{children}</Container>;
 };
 

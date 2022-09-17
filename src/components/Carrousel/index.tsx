@@ -45,34 +45,36 @@ const Carrousel = ({
   carrouselContent,
 }: {
   carrouselContent: ItemCarrousel[];
-}) => {
+}): JSX.Element => {
   const carrouselSelector = usePageSelector((state) => state.carrousel);
   const dispatch = usePageDispatch();
 
-  const goToNextElement = (buttonValue: number) => {
+  const goToNextElement = (buttonValue: number): void => {
     if (buttonValue !== carrouselSelector.currentBanner.order) {
       const newCurrentElement = carrouselSelector.bannerList.find(
         (element) => element.order === buttonValue
-      )!;
+      );
 
-      dispatch(setNextBanner(defineNextElement(newCurrentElement)));
-      dispatch(setDisableButtons(disableBannerButtons()));
-      setTimeout(() => {
-        dispatch(setTransitionBanner(slowTransitionBanner()));
-        dispatch(setTranslateBanner(translateToNext()));
-      }, 100);
+      if (newCurrentElement != null) {
+        dispatch(setNextBanner(defineNextElement(newCurrentElement)));
+        dispatch(setDisableButtons(disableBannerButtons()));
+        setTimeout(() => {
+          dispatch(setTransitionBanner(slowTransitionBanner()));
+          dispatch(setTranslateBanner(translateToNext()));
+        }, 100);
 
-      setTimeout(() => {
-        dispatch(setTransitionBanner(instantTransitionBanner()));
-        dispatch(setTranslateBanner(resetTranslate()));
-        dispatch(setCurrentBanner(defineCurrentElement(newCurrentElement)));
-        dispatch(setFillBar(resetFillBar()));
-        dispatch(setDisableButtons(enableBannerButtons()));
-      }, 1000);
+        setTimeout(() => {
+          dispatch(setTransitionBanner(instantTransitionBanner()));
+          dispatch(setTranslateBanner(resetTranslate()));
+          dispatch(setCurrentBanner(defineCurrentElement(newCurrentElement)));
+          dispatch(setFillBar(resetFillBar()));
+          dispatch(setDisableButtons(enableBannerButtons()));
+        }, 1000);
+      }
     }
   };
 
-  const onClickNext = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const onClickNext = (event: React.MouseEvent<HTMLButtonElement>): void => {
     const buttonValue = Number(event.currentTarget.value);
     goToNextElement(buttonValue);
   };

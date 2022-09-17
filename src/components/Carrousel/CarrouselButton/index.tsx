@@ -18,9 +18,9 @@ const Button = styled.button`
   }
 `;
 
-type FillBarProps = {
+interface FillBarProps {
   currentWidth: number;
-};
+}
 
 const FillBar = styled.div<FillBarProps>`
   background-color: black;
@@ -33,7 +33,7 @@ const FillBar = styled.div<FillBarProps>`
   transition-duration: 500ms;
 `;
 
-type CarrouselButtonProps = {
+interface CarrouselButtonProps {
   buttonName: string;
   fillWidth: number;
   inTransition: boolean;
@@ -43,7 +43,7 @@ type CarrouselButtonProps = {
   currentElement: number;
   inTransitionFillBar: boolean;
   actionClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-};
+}
 
 const CarrouselButton = ({
   buttonName,
@@ -55,8 +55,8 @@ const CarrouselButton = ({
   currentElement,
   inTransitionFillBar,
   actionClick,
-}: CarrouselButtonProps) => {
-  const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+}: CarrouselButtonProps): JSX.Element => {
+  const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
     actionClick(event);
   };
 
@@ -72,12 +72,8 @@ const CarrouselButton = ({
         <FillBar
           currentWidth={fillWidth}
           style={{
-            transitionDuration: `${
-              inTransitionFillBar === false ? '0ms' : '1000ms'
-            }`,
-            display: `${
-              fillWidth >= 100 || inTransition === true ? 'none' : 'flex'
-            }`,
+            transitionDuration: `${!inTransitionFillBar ? '0ms' : '1000ms'}`,
+            display: `${fillWidth >= 100 || inTransition ? 'none' : 'flex'}`,
           }}
         />
       )}

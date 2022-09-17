@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  fireEvent,
-  queryByText,
-  getByText,
-} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CarrouselButton from '.';
 import '@testing-library/jest-dom';
 import '@testing-library/dom';

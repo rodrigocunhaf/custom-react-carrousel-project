@@ -1,8 +1,7 @@
 import * as React from 'react';
 import '@testing-library/dom';
 import '@testing-library/jest-dom';
-import { act } from '@testing-library/react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, act } from '@testing-library/react';
 import Carrousel from '.';
 import { Provider } from 'react-redux';
 import content from '../../content/index.json';
@@ -13,7 +12,6 @@ import {
   setFillBar,
 } from '../../store/reducers';
 import {
-  slowTransitionBanner,
   defineBannerList,
   defineCurrentElement,
   grownthFillBar,
@@ -50,8 +48,6 @@ describe('Component -> CarrouselSlider', () => {
     store.dispatch(setFillBar(resetFillBar()));
     store.dispatch(setFillBar(grownthFillBar(1)));
     store.dispatch(setCurrentBanner(defineCurrentElement(content[0])));
-
-    const k = jest.fn(() => store.dispatch(setFillBar(grownthFillBar())));
 
     render(
       <Provider store={store}>

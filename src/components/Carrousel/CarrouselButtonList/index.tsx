@@ -13,7 +13,11 @@ const Container = styled.ul`
   list-style: none;
 `;
 
-const CarrouselButtonList = ({ children }: { children: React.ReactNode }) => {
+const CarrouselButtonList = ({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element => {
   return <Container>{children}</Container>;
 };
 

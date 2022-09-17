@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CarrouselAction } from '../actions';
 
-export type ItemCarrousel = {
+export interface ItemCarrousel {
   order: number;
   color: string;
   text: string;
-};
+}
 
-type CarrouselState = {
+interface CarrouselState {
   bannerList: ItemCarrousel[];
   translate: number;
   transitionBanner: boolean;
@@ -17,7 +17,7 @@ type CarrouselState = {
   fillBar: number;
   transitionFillBar: boolean;
   disableButtons: boolean;
-};
+}
 
 const initialState: CarrouselState = {
   bannerList: [],
@@ -54,7 +54,10 @@ export const carroselSlice = createSlice({
     },
     setFillBar: (state, action: PayloadAction<CarrouselAction>) => {
       if (action.payload.type === 'GROWNTH_FILL_BAR') {
-        return { ...state, fillBar: state.fillBar + action.payload.data };
+        return {
+          ...state,
+          fillBar: state.fillBar + Number(action.payload.data),
+        };
       }
       if (action.payload.type === 'RESET_FILL_BAR') {
         return { ...state, fillBar: action.payload.data };
