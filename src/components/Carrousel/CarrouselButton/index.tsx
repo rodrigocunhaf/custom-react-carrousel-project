@@ -6,8 +6,8 @@ interface ButtonProps {
 }
 
 const Button = styled.button<ButtonProps>`
-  color: black;
-  background-color: ${(props) => (!props.isActiveBanner ? 'yellow' : 'black')};
+  color: snow;
+  background-color: ${(props) => (!props.isActiveBanner ? 'snow' : 'black')};
   border: 0;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@ const Button = styled.button<ButtonProps>`
   @media screen and (min-width: 768px) {
     width: 12rem;
     height: 4rem;
-    background-color: yellow;
+    background-color: black;
     border-radius: 0;
     border-bottom-left-radius: 3rem;
     border-top-left-radius: 3rem;
@@ -45,7 +45,7 @@ interface FillBarProps {
 }
 
 const FillBar = styled.div<FillBarProps>`
-  background-color: black;
+  background-color: white;
   height: 5px;
   position: absolute;
   width: ${(props) => props.currentWidth}%;

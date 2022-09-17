@@ -1,22 +1,22 @@
 [
   {
     "order": 1,
-    "color": "red",
+    "color": "#A5C4D4",
     "text": "1 Element"
   },
   {
     "order": 2,
-    "color": "green",
+    "color": "#8499B1",
     "text": "2 Element"
   },
   {
     "order": 3,
-    "color": "blue",
+    "color": "#7B6D8D",
     "text": "3 Element"
   },
   {
     "order": 4,
-    "color": "purple",
+    "color": "#593F62",
     "text": "4 Element"
   }
 ]
