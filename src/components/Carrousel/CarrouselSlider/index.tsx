@@ -7,9 +7,10 @@ const Container = styled.ul`
   width: 3840px;
 `;
 
-type ItemProps = {
+interface ItemProps {
   bgColor: string;
-};
+}
+
 const Item = styled.div<ItemProps>`
   background-color: ${(props) => props.bgColor};
   display: flex;
@@ -21,14 +22,14 @@ const Item = styled.div<ItemProps>`
   font-size: 5rem;
 `;
 
-type CarrouselSliderProps = {
+interface CarrouselSliderProps {
   currentElementColor: string;
   currentElementText: string;
   nextElementColor: string;
   nextElementText: string;
   inTransition: boolean;
   translate: number;
-};
+}
 
 const CarrouselSlider = ({
   currentElementColor,
@@ -37,14 +38,14 @@ const CarrouselSlider = ({
   nextElementText,
   inTransition,
   translate,
-}: CarrouselSliderProps) => {
+}: CarrouselSliderProps): JSX.Element => {
   return (
     <Container>
       <Item
         bgColor={currentElementColor}
         style={{
           transform: `translateX(${translate}%)`,
-          transitionDuration: `${inTransition === false ? '0ms' : '1000ms'}`,
+          transitionDuration: `${!inTransition ? '0ms' : '1000ms'}`,
         }}
       >
         {currentElementText}
@@ -53,7 +54,7 @@ const CarrouselSlider = ({
         bgColor={nextElementColor}
         style={{
           transform: `translateX(${translate}%)`,
-          transitionDuration: `${inTransition === false ? '0ms' : '1000ms'}`,
+          transitionDuration: `${!inTransition ? '0ms' : '1000ms'}`,
         }}
       >
         {nextElementText}
